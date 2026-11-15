@@ -1,0 +1,24 @@
+ARBODEX — PUBLICACIÓN EN FIREBASE
+
+Este paquete contiene la web ya compilada. No está publicada todavía.
+Las reglas incluidas ya se publicaron en la base default, México.
+
+En una Mac o PC con Node.js 22 o posterior:
+1. Descomprime el ZIP.
+2. Abre Terminal en la carpeta que contiene firebase.json.
+3. Ejecuta: npx -y firebase-tools@latest login
+   Inicia sesión con la cuenta de Google dueña de ArboDex.
+4. Ejecuta: npx -y firebase-tools@latest hosting:sites:list --project arbodex
+   Comprueba que exista el sitio arbodex y que no reemplaces otra web.
+5. Publica un enlace de prueba (caduca en 7 días):
+   npx -y firebase-tools@latest hosting:channel:deploy piloto --project arbodex --expires 7d
+
+Comparte el enlace resultante en el chat, nunca contraseñas o tokens.
+Falta probar acceso real, crear tu cuenta y asignar el rol de organizador
+solo a su UID verificado, antes de abrir la comunidad.
+
+Estado: Google/correo habilitados; base default en northamerica-south1;
+reglas publicadas; 40 pruebas de permisos pasadas en emulador Standard.
+Las reglas son un prototipo probado, pendiente de pruebas reales en Enterprise.
+La web anterior privada de ChatGPT conserva sus datos y acceso anteriores.
+Este paquete no importa ni reasigna esos datos.

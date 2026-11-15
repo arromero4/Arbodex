@@ -1,0 +1,136 @@
+/* Footer exclusivo de inicio de sesión. No altera los componentes React. */
+#arbodex-login-footer { box-sizing: border-box; width: 100%; margin: 18px auto 0; padding: 28px 20px 24px; background: #151b1d; color: #d9e0dc; border-top: 1px solid rgba(167,215,155,.24); text-align: center; font-family: Montserrat, system-ui, -apple-system, sans-serif; }
+#arbodex-login-footer *, #arbodex-login-footer *::before, #arbodex-login-footer *::after { box-sizing: border-box; }
+#arbodex-login-footer .adf-heading { margin: 0 0 18px; font-size: 12px; font-weight: 700; line-height: 1.5; letter-spacing: .11em; color: #a8d998; }
+#arbodex-login-footer .adf-social { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; align-items: center; }
+#arbodex-login-footer .adf-social a { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: #2b3333; color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,.15); transition: background .18s ease, transform .18s ease; }
+#arbodex-login-footer .adf-social a:hover { background: #45604a; transform: translateY(-2px); }
+#arbodex-login-footer .adf-social a:focus-visible { outline: 3px solid #a8d998; outline-offset: 3px; }
+#arbodex-login-footer .adf-social svg { width: 23px; height: 23px; display: block; fill: currentColor; }
+#arbodex-login-footer .adf-social .adf-campfire svg { width: 28px; height: 28px; }
+#arbodex-login-footer .adf-info { margin: 20px 0 0; font-size: 12px; line-height: 1.9; color: #d4d9d5; }
+#arbodex-login-footer .adf-rule { width: min(460px,100%); height: 1px; margin: 21px auto 16px; background: rgba(255,255,255,.13); }
+#arbodex-login-footer .adf-copyright { margin: 0; color: #aeb9b3; font-size: 12px; line-height: 1.7; }
+/* Sin fondo crema: mismo tratamiento de iconos en móvil y escritorio. */
+#arbodex-login-footer nav.adf-social {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  max-width: 100%;
+}
+#arbodex-login-footer nav.adf-social::before,
+#arbodex-login-footer nav.adf-social::after {
+  content: none !important;
+  display: none !important;
+}
+
+@media (max-width:480px) { #arbodex-login-footer { padding: 22px 12px 26px; } #arbodex-login-footer .adf-social { gap: 13px; } #arbodex-login-footer .adf-social a { width: 46px; height: 46px; } }
+@media (prefers-reduced-motion: reduce) { #arbodex-login-footer .adf-social a { transition: none; } }
+
+
+/* ArboDex — corrección aislada para escritorio.
+   Sobrescribe footer/nav genéricos del CSS compilado sin cambiar la vista móvil. */
+@media (min-width: 768px) {
+  #arbodex-login-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    width: 100%;
+    margin: 24px auto 0;
+    padding: 36px 24px 28px;
+    text-align: center;
+  }
+  #arbodex-login-footer .adf-heading {
+    margin: 0 0 22px;
+    width: 100%;
+    font-size: 13px;
+  }
+  #arbodex-login-footer nav.adf-social {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    width: auto;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+  #arbodex-login-footer .adf-info {
+    margin: 24px 0 0;
+    font-size: 12px;
+  }
+  #arbodex-login-footer .adf-rule {
+    margin: 24px auto 16px;
+  }
+  #arbodex-login-footer .adf-copyright {
+    margin: 0;
+    text-align: center;
+  }
+}
+
+
+/* ArboDex — Footer responsive */
+
+/* Eliminar el fondo crema */
+#arbodex-login-footer .adf-social {
+  background: transparent !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 16px !important;
+}
+
+/* Organizar el footer verticalmente */
+#arbodex-login-footer {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 24px !important;
+}
+
+/* Centrar los enlaces informativos */
+#arbodex-login-footer .adf-info {
+  text-align: center !important;
+}
+
+/* Ajustes para iPhone */
+@media (max-width: 600px) {
+  #arbodex-login-footer .adf-social {
+    gap: 12px !important;
+  }
+}
+/* El footer permanece al final del contenido; no ocupa espacio durante la carga. */
+#arbodex-login-footer[hidden] { display: none !important; }
+#root.adf-authenticated main > footer { display: none; }
+#arbodex-login-footer.adf-compact {
+  margin-top: 24px;
+  padding: 20px 16px;
+  gap: 12px !important;
+}
+#arbodex-login-footer.adf-compact .adf-heading { display: none; }
+#arbodex-login-footer.adf-compact .adf-social { gap: 12px !important; }
+#arbodex-login-footer.adf-compact .adf-social a { width: 44px; height: 44px; }
+#arbodex-login-footer.adf-compact .adf-social svg { width: 20px; height: 20px; }
+#arbodex-login-footer.adf-compact .adf-social .adf-campfire svg { width: 24px; height: 24px; }
+#arbodex-login-footer.adf-compact .adf-info { margin: 0; font-size: 11px; }
+#arbodex-login-footer.adf-compact .adf-rule { margin: 0; }
+#arbodex-login-footer.adf-compact .adf-copyright { font-size: 11px; }
