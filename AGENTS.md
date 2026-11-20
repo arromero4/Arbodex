@@ -1,0 +1,10 @@
+# Trabajar en ArboDex
+
+- Dirígete al responsable como **Capitán**. Explica cómo funciona cada cambio, qué comprobaste y qué queda por verificar. Cuando haya un error, describe su causa conocida, su efecto y cómo se corrigió. Si falta contexto que cambie la decisión, solicítalo.
+- La referencia funcional es `ajuste-demo` en `33c9e25`. Trabaja e integra los cambios en `development`. Comprueba la rama y el estado del árbol al empezar. Conserva el historial y los cambios ajenos.
+- Lee [el diseño del sistema](docs/SYSTEM-DESIGN.md) y ejecuta una etapa de [SKILLS.md](SKILLS.md) por vez. La etapa cero es de análisis. Las siguientes etapas tienen criterios de salida y de reversión.
+- El cliente principal compilado, las reglas y la demo son referencias distintas. Usa `build/` como oráculo de comportamiento. Escribe el nuevo cliente en React y TypeScript y el servidor en Node.js y TypeScript. Conserva el enlace `/?member=<uuid>`, la separación de la demo y el acceso de los organizadores.
+- Trabaja con datos sintéticos, el proyecto local `demo-arbodex` y la base nombrada `default` para las pruebas de Firestore. Comprueba el destino efectivo de un comando antes de usarlo. El alias del clon apunta a `arbodex`. Mantén credenciales de servicio en el entorno del backend.
+- La migración debe mantener disponible el registro de asistencias. Mantén un único escritor autoritativo por operación. Un cambio de rama o de aplicación no restaura por sí solo los datos escritos después de un corte.
+- Para cambios funcionales, comprueba la ruta normal, el acceso por rol, el comportamiento bajo reintento y los registros antiguos pertinentes. Para cambios documentales, comprueba rutas, enlaces y consistencia con el código. Indica qué sistema operativo y servicios usaste realmente.
+- Distingue un ensayo local de una publicación en Hosting, una modificación de reglas desplegadas o un cambio de escritor en producción. Ejecuta esas operaciones sobre el entorno identificado cuando el Capitán las solicite.
