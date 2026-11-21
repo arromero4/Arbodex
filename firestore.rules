@@ -25,6 +25,19 @@ service cloud.firestore {
   function ownsCard(id) { return signedIn() && exists(/databases/$(database)/documents/cards/$(id)) && get(/databases/$(database)/documents/cards/$(id)).data.ownerUid == request.auth.uid; }
   match /organizers/{uid} { allow get: if isOwner(uid); allow list, write: if false; }
   match /accounts/{uid} {
+   // A UI preference only: this marker never grants stamps or an achievement.
+   match /celebrationViews/{yearId} {
+    allow get: if isOwner(uid);
+    allow create: if isOwner(uid)
+      && exists(/databases/$(database)/documents/accounts/$(uid))
+      && request.resource.data.keys().hasAll(['year','seenAt'])
+      && request.resource.data.keys().hasOnly(['year','seenAt'])
+      && validYear(request.resource.data.year)
+      && yearId == string(request.resource.data.year)
+      && request.resource.data.seenAt == request.time;
+    allow update, delete, list: if false;
+   }
+
    allow get: if isOwner(uid);
    allow create: if isOwner(uid) && request.resource.data.keys().hasAll(['cardId','createdAt']) && request.resource.data.keys().hasOnly(['cardId','createdAt']) && uuid(request.resource.data.cardId) && request.resource.data.createdAt == request.time && getAfter(/databases/$(database)/documents/cards/$(request.resource.data.cardId)).data.ownerUid == uid;
    allow update, delete, list: if false;
